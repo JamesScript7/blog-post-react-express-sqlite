@@ -16,6 +16,7 @@ class Status extends Component {
 	}
 
 	addPost(newPost) {
+		axios.get()
 
 		this.posts.push(newPost);
 		
