@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import BlogForm from './BlogForm.jsx';
 
+
 class Status extends Component {
 	constructor(props){
 		super(props);
 
-			this.posts = []
+			this.posts = [];
 
 			this.state = {
 				post: this.posts

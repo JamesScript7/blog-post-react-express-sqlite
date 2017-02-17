@@ -1,18 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import { browserHistory } from 'react-router';
 
-import Blogs from './Blogs.jsx';
+import Routes from './routes.jsx';
+import './index.css';
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-
-	<Route path="/" component={App}>
-		<IndexRoute component={Blogs} />
-	</Route>
-
-  </Router>,
+  <Routes history={browserHistory} />,
   document.getElementById('root')
 );
