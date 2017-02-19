@@ -23,6 +23,8 @@ class Status extends Component {
 		})
 			.then(res => {
 
+				console.log(res)
+
 				let data = {
 					"title": res.data.title,
 					"body": res.data.body
@@ -34,7 +36,16 @@ class Status extends Component {
 					post: this.posts
 				})
 			})
+	}
 
+	componentDidMount() {
+		
+		axios.get('http://localhost:9000/getAll')
+			.then(res => {
+
+				console.log(res.data);
+
+			})
 	}
 
 	render() {
