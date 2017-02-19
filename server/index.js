@@ -52,13 +52,11 @@ app.post('/submitForm', function(req,res) {
 
 app.get('/getAll', function(req,res) {
 
-	BlogPost.findAll({
-			where: { title: true }
-		}).then(function(results) {
-			res.json(results);
+	BlogPost.findAll({}).then(function(results) {
+			res.json({ post: results });
 		});
 
-})
+});
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));

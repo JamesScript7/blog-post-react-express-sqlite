@@ -23,35 +23,33 @@ class Status extends Component {
 		})
 			.then(res => {
 
-				console.log(res)
-
-				let data = {
-					"title": res.data.title,
-					"body": res.data.body
-				}
-
-				this.posts.push(data);
+				this.posts.push(res.data);
 
 				this.setState({
 					post: this.posts
 				})
 			})
+
 	}
 
 	componentDidMount() {
-		
+
 		axios.get('http://localhost:9000/getAll')
 			.then(res => {
-
-				console.log(res.data);
-
+				this.posts = res.data.post
+				
+				this.setState({
+					post: this.posts
+				})
 			})
+
 	}
 
 	render() {
 		return (
 			<div className="blogs">
 				
+				<BlogForm addPost={this.addPost}/>
 
 				<div>
 					{
@@ -66,7 +64,6 @@ class Status extends Component {
 
 				</div>
 				
-				<BlogForm addPost={this.addPost}/>
 
 			</div>
 			);
