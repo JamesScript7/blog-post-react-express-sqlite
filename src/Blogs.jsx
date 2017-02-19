@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BlogForm from './BlogForm.jsx';
-
+import axios from 'axios';
 
 class Status extends Component {
 	constructor(props){
@@ -16,16 +16,27 @@ class Status extends Component {
 	}
 
 	addPost(newPost) {
-		axios.get()
 
-		this.posts.push(newPost);
-		
-		this.setState({
-			post: this.posts
+		axios.post('http://localhost:9000/submitForm', {
+			title: newPost.title,
+			body: newPost.body
 		})
+			.then(res => {
+
+				let data = {
+					"title": res.data.title,
+					"body": res.data.body
+				}
+
+				this.posts.push(data);
+
+				this.setState({
+					post: this.posts
+				})
+			})
 
 	}
-	
+
 	render() {
 		return (
 			<div className="blogs">
