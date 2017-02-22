@@ -11,6 +11,7 @@ class App extends Component {
           <h2>The REACT Blog!</h2>
         </div>
         {this.props.children}
+        <div className="App-header"></div>
       </div>
     );
   }

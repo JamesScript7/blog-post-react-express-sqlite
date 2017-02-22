@@ -1,0 +1,24 @@
+.posts {
+	border: solid #454545 2px;
+	margin: 10px 0px;
+	padding: 10px;
+}
+
+.container {
+	width: 350px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.blogs .container .posts h1 {
+	margin: 5px 0 5px 0;
+}
+
+div.posts {
+	padding-top: 0px;
+	margin-bottom: 15px;
+}
+
+div.btn {
+	text-align: right;
+}

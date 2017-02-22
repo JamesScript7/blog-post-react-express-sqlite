@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BlogForm from './BlogForm.jsx';
 import axios from 'axios';
+import './styles.css';
 
 class Status extends Component {
 	constructor(props){
@@ -13,6 +14,8 @@ class Status extends Component {
 			}
 
 			this.addPost = this.addPost.bind(this);
+			this.editPost = this.editPost.bind(this);
+			this.deletePost = this.deletePost.bind(this);
 	}
 
 	addPost(newPost) {
@@ -30,6 +33,18 @@ class Status extends Component {
 				})
 			})
 
+	}
+
+	editPost() {
+		axios.get('http://localhost:9000/editPost', {
+			
+		})
+	}
+
+	deletePost() {
+		axios.delete('http://localhost:9000/deletePost', {
+
+		})
 	}
 
 	componentDidMount() {
@@ -51,19 +66,26 @@ class Status extends Component {
 				
 				<BlogForm addPost={this.addPost}/>
 
-				<div>
+				<div className="container">
 					{
 						this.state.post.map( (post,i) => {
 							return (
-								<div key={"item-" + (i + 1)}>
+								<div className="posts" key={"item-" + (i + 1)}>
 									<h1>{post.title}</h1>
+									<p>Date: {post.createdAt}</p>
+									<hr />
 									<p>{post.body}</p>
+
+									<div className="btn">
+										<button onClick={this.editPost}>Edit</button>
+										<button onClick={this.deletePost}>Delete</button>
+									</div>
+
 								</div>)
 						}).reverse()
 		 		  }
 
 				</div>
-				
 
 			</div>
 			);

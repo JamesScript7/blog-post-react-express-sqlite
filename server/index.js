@@ -50,6 +50,17 @@ app.post('/submitForm', function(req,res) {
 
 });
 
+app.get('/editPost', function(req,res) {
+  console.log("hi");
+  console.log(req.body);
+})
+
+app.delete('/deletePost', function(req,res) {
+ 
+  console.log(req.body);
+
+});
+
 app.get('/getAll', function(req,res) {
 
 	BlogPost.findAll({}).then(function(results) {
