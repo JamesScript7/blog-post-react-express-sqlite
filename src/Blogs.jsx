@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import BlogForm from './BlogForm.jsx';
 import axios from 'axios';
 import './styles.css';
+import Edit from './Edit.jsx';
+import Delete from './Delete.jsx';
 
 class Status extends Component {
 	constructor(props){
@@ -35,16 +37,12 @@ class Status extends Component {
 
 	}
 
-	editPost() {
-		axios.get('http://localhost:9000/editPost', {
-			
-		})
+	editPost(e) {
+		console.log("in editPost");
 	}
 
-	deletePost() {
-		axios.delete('http://localhost:9000/deletePost', {
-
-		})
+	deletePost(e) {
+		console.log("in deletePost");
 	}
 
 	componentDidMount() {
@@ -76,11 +74,8 @@ class Status extends Component {
 									<hr />
 									<p>{post.body}</p>
 
-									<div className="btn">
-										<button onClick={this.editPost}>Edit</button>
-										<button onClick={this.deletePost}>Delete</button>
-									</div>
-
+									<Edit editPost={this.editPost} post={post} />
+									<Delete deletePost={this.deletePost} post={post}/>
 								</div>)
 						}).reverse()
 		 		  }

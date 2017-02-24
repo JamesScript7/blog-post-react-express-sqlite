@@ -57,7 +57,7 @@ app.get('/editPost', function(req,res) {
 
 app.delete('/deletePost', function(req,res) {
  
-  console.log(req.body);
+  console.log("in the server-side delete!");
 
 });
 
